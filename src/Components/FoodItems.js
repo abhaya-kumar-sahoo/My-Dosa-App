@@ -1,20 +1,13 @@
-import React, { useState } from "react";
-import { AiOutlineClockCircle, AiOutlineMenu, AiOutlineSearch  } from "react-icons/ai";
-import "./Dosa.css";
-import "../utils/css/Gloablcss.css";
+import React,{useState} from 'react'
+import { AiOutlineClockCircle, AiOutlineMenu } from 'react-icons/ai';
+import { ModalComponent } from './Modal';
 import { IoMdCall } from 'react-icons/io';
-import { LuChevronRight} from 'react-icons/lu';
-import { LuChevronDown} from 'react-icons/lu';
-import { MdOutlineMailOutline} from 'react-icons/md';
-import { Hr } from "./GlobalContent";
-import { ModalComponent } from "./Modal";
-import MenuItem from "./MenuItems";
-// import {
-//   imag_box_css,
-//   Download_now,
-//   close_button,
-// } from "../../utils/css/dummydata/CardData";
-const Dosa = () => {
+import { MdOutlineMailOutline } from 'react-icons/md';
+import { Hr } from './GlobalContent';
+import { LuChevronDown, LuChevronRight } from 'react-icons/lu';
+import { Plain_Dosa } from '../utils/css/dummydata/Carddata';
+
+const FoodItems = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [DownloadOpen, setIsDownloadOpen] = useState(false);
   const OpenSlider = () => {
@@ -29,60 +22,59 @@ const Dosa = () => {
     setOpenDropdownIndex(openDropdownIndex === index ? null : index);
   };
   return (
-    <div className="">
+    <div className=''>
+       <div className={`flex flex-row items-center justify-between p-2 w-full creamcolor ${isOpen ? 'fixed' : ''}`}>
       
-      <div className={`flex flex-row items-center justify-between p-2 w-full creamcolor ${isOpen ? 'fixed' : ''}`}>
-      
-        <div className="flex space-x-2 text-3xl xl:text-4xl">
-          <h1 className="circle circle-text  mb-4 xl:w-8 xl:h-8 xl:mb-6 mobile-hidden">
-            x
-          </h1>
-          <div className="flex web-hidden">
-            <AiOutlineMenu color="orange" size="0.6em" className="mt-[8px] ml-[-12px]"
-            onClick={OpenSlider}/>
-          </div>
-          <h1 className="text-orange-500 font-bold xl:text-xl max-sm:text-[18px]">DOSA</h1>
-          <h1 className="text-green-600 font-bold xl:text-xl max-sm:text-[18px]">HOUSE.</h1>
-        </div>
-        <div className="hidden xl:flex space-x-4 text-lg text-black mt-[-20px]">
-          <h1 className="">Download Our App</h1>
-          <h1 className="">Our Locations</h1>
-          <h1 className="">Timings</h1>
-          <h1 className="">Contact us</h1>
-        </div>
+      <div className="flex space-x-2 text-3xl xl:text-4xl">
+        <h1 className="circle circle-text  mb-4 xl:w-8 xl:h-8 xl:mb-6 mobile-hidden">
+          x
+        </h1>
         <div className="flex web-hidden">
-        <ModalComponent isOpen={DownloadOpen}>
-        <div className="bg-transparent rounded-lg p-10 ">
-          <div
-            onClick={() => setIsDownloadOpen(false)}
-            className="justify-between rounded-full">
-            <div className="grad  p-4 place-items-center justify-center align-middle text-center self-center rounded-lg">
-              <h1 className="font-semibold text-md text-white px-6 py-1">Download Now</h1>
-              <div className="flex space-x-8 p-4 justify-center">
-                <h1 className="grid place-items-center bg-slate-100  shadow-orange-500 rounded-xl shadow-md  max-[360px]:h-12 max-[360px]:w-12">
-                  <img src="play.png" alt="pic" className="iconn"></img>
-                </h1>
-                <h1 className="grid place-items-center bg-slate-100  shadow-orange-500 rounded-xl shadow-md  w-16 h-16 max-[360px]:h-12 max-[360px]:w-12">
-                  <img src="apple.png" alt="pic" className="icoon"></img>
-                </h1>
-              </div>
-              <div className="place-items-center justify-center align-middle text-center self-center grid">
-                <button className="px-6 r-0 l-0 rounded-full text-white  bg-orange-400 mt-6 absolute">Close</button>
-              </div>
+          <AiOutlineMenu color="orange" size="0.6em" className="mt-[8px] ml-[-12px]"
+          onClick={OpenSlider}/>
+        </div>
+        <h1 className="text-orange-500 font-bold xl:text-xl max-sm:text-[18px]">DOSA</h1>
+        <h1 className="text-green-600 font-bold xl:text-xl max-sm:text-[18px]">HOUSE.</h1>
+      </div>
+      <div className="hidden xl:flex space-x-4 text-lg text-black mt-[-20px]">
+        <h1 className="">Download Our App</h1>
+        <h1 className="">Our Locations</h1>
+        <h1 className="">Timings</h1>
+        <h1 className="">Contact us</h1>
+      </div>
+      <div className="flex web-hidden">
+      <ModalComponent isOpen={DownloadOpen}>
+      <div className="bg-transparent rounded-lg p-10 ">
+        <div
+          onClick={() => setIsDownloadOpen(false)}
+          className="justify-between rounded-full">
+          <div className="grad  p-4 place-items-center justify-center align-middle text-center self-center rounded-lg">
+            <h1 className="font-semibold text-md text-white px-6 py-1">Download Now</h1>
+            <div className="flex space-x-8 p-4 justify-center">
+              <h1 className="grid place-items-center bg-slate-100  shadow-orange-500 rounded-xl shadow-md  max-[360px]:h-12 max-[360px]:w-12">
+                <img src="play.png" alt="pic" className="iconn"></img>
+              </h1>
+              <h1 className="grid place-items-center bg-slate-100  shadow-orange-500 rounded-xl shadow-md  w-16 h-16 max-[360px]:h-12 max-[360px]:w-12">
+                <img src="apple.png" alt="pic" className="icoon"></img>
+              </h1>
+            </div>
+            <div className="place-items-center justify-center align-middle text-center self-center grid">
+              <button className="px-6 r-0 l-0 rounded-full text-white  bg-orange-400 mt-6 absolute">Close</button>
             </div>
           </div>
         </div>
-      </ModalComponent>
-          <button 
-          onClick={() => setIsDownloadOpen(true)}
-          style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.4) ," ,text:"md"}}
-          className="bg-orange-400 rounded-full text-xs px-1 py-1 text-white">Download App</button>
-          <a href="tel:+919348557381" >
-          <IoMdCall className="mb-1" color="green" size="1.4em" />
-          </a>
-        </div>
       </div>
-      {isOpen && (
+    </ModalComponent>
+        <button 
+        onClick={() => setIsDownloadOpen(true)}
+        style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.4) ," ,text:"md"}}
+        className="bg-orange-400 rounded-full text-xs px-1 py-1 text-white">Download App</button>
+        <a href="tel:+919348557381" >
+        <IoMdCall className="mb-1" color="green" size="1.4em" />
+        </a>
+      </div>
+    </div>
+    {isOpen && (
           <div className="slide-panel-header p-2">
             <h1
               onClick={CloseSlider}
@@ -231,35 +223,26 @@ const Dosa = () => {
               </div>
             </>
           )}
-          <Hr space={30} />
+         
         </div>
       )}
-
-      <div className="flex h-[130px] justify-around ml-[-17vh] " >
-        <form className={`form max-sm:ml-14 ${isOpen ? 'hidden' : ''}`}>
-          <div className="flex space-x-4 input-group">
-            <div className="relative">
-              <AiOutlineSearch
-                className="absolute max-sm:ml-12 ml-2 mt-4 left-0"
-                color="gray"
-              />
-              <input
-                type="text"
-                style={{ paddingLeft: 28 }}
-                
-                className={`input searchdown ${isOpen ? 'disabled' : ''}`}
-                readOnly={isOpen}
-              />
-              <label className="placeholder max-sm:ml-12">Search Item</label>
-            </div>
+        <h1 className='flex justify-start font-bold text-style '>DOSAS</h1>
+        {Plain_Dosa.map((item) => (
+         <div  key={item.id} className='flex bg-white  justify-between my-4 px-4 py-4 border-b'>
+        <div >
+          <h1 className='flex text-black ml-2 text-sm justify-start'> {item.name}</h1>
+          <div className='flex'>
+          <p className=' text-black ml-2 text-xs'>Price: {item.price.price}</p>
+          <p className="text-black ml-2 text-xs">Tax: {item.price.tax}</p>
           </div>
-        </form>
-      </div>
-    
-      <MenuItem/>
-    
+        </div>
+        <button className='bg-pink-200 h-8 w-20 rounded-full text-red-500 text-sm mr-2'>+ ADD</button>
+        </div>
+        
+        ))}
+        
     </div>
-  );
-};
+  )
+}
 
-export default Dosa;
+export default FoodItems

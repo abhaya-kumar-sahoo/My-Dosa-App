@@ -32,7 +32,7 @@ const sectionData = [
 
     {
       image: 'chaats.png',
-      title: 'UTHAPAMS',
+      title: 'CHAATS',
       description:'Chaats is a family of savoury snacks.',
     },
     {
@@ -58,6 +58,8 @@ const sectionData = [
     },
     
   ];
+
+  
   
   export default sectionData;
   
