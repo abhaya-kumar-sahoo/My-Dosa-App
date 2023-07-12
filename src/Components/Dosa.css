@@ -82,15 +82,30 @@
 }
 .text-style{
   font-size: 1.3rem;
-    text-align: center;
-    padding: 4%;
-    font-family: Roboto Slab,serif!important;
+  text-align: center;
+  padding: 4%;
+  font-family: Roboto Slab,serif!important;
 }
-
+@media (min-width: 600px) {
+  .circle {
+    display: none;
+  }
+}
 .icon {
   width: 4vw;
   height:2vh;
   color: gray;
+}
+.call-icon{ 
+width: 2vw;
+}
+.xl-screen{
+  height: 30px;
+  width: 30px;
+}
+.xl-screeen{
+  height: 20px;
+  width: 20px;
 }
 
 @media only screen and (max-width:360px){
@@ -134,7 +149,7 @@
     line-height: 200px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    border-radius: 8px;
+    /* border-radius: 8px; */
 }
 
 .boxhover:hover {

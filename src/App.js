@@ -11,7 +11,10 @@ function App() {
     <Routes>
       <Route path='/' element={<Dosa/>}/>
       <Route path='/' element={<MenuItems/>}/>
-      <Route path="/FoodItems" element={<FoodItems/>} />
+      <Route path="/FoodItems/:id" element={<FoodItems/>} />
+      <Route path='/' element={<FoodItems/>}/>
+      <Route path='Dosa' element={<Dosa/>}/>
+
      
     </Routes>
   </Router>

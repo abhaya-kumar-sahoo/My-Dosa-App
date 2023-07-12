@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AiOutlineClockCircle, AiOutlineMenu, AiOutlineSearch  } from "react-icons/ai";
+import { AiOutlineClockCircle, AiOutlineMenu } from "react-icons/ai";
 import "./Dosa.css";
 import "../utils/css/Gloablcss.css";
 import { IoMdCall } from 'react-icons/io';
@@ -9,14 +9,10 @@ import { MdOutlineMailOutline} from 'react-icons/md';
 import { Hr } from "./GlobalContent";
 import { ModalComponent } from "./Modal";
 import MenuItem from "./MenuItems";
-// import {
-//   imag_box_css,
-//   Download_now,
-//   close_button,
-// } from "../../utils/css/dummydata/CardData";
 const Dosa = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [DownloadOpen, setIsDownloadOpen] = useState(false);
+
   const OpenSlider = () => {
     setIsOpen(true);
   };
@@ -28,11 +24,10 @@ const Dosa = () => {
   const toggleDropdown = (index) => {
     setOpenDropdownIndex(openDropdownIndex === index ? null : index);
   };
+
   return (
-    <div className="">
-      
-      <div className={`flex flex-row items-center justify-between p-2 w-full creamcolor ${isOpen ? 'fixed' : ''}`}>
-      
+    <div className=""> 
+      <div className={`flex flex-row items-center justify-between p-2 w-full creamcolor ${isOpen ? 'fixed' : ''}`}> 
         <div className="flex space-x-2 text-3xl xl:text-4xl">
           <h1 className="circle circle-text  mb-4 xl:w-8 xl:h-8 xl:mb-6 mobile-hidden">
             x
@@ -44,7 +39,7 @@ const Dosa = () => {
           <h1 className="text-orange-500 font-bold xl:text-xl max-sm:text-[18px]">DOSA</h1>
           <h1 className="text-green-600 font-bold xl:text-xl max-sm:text-[18px]">HOUSE.</h1>
         </div>
-        <div className="hidden xl:flex space-x-4 text-lg text-black mt-[-20px]">
+        <div className="hidden xl:flex space-x-4 text-md text-black mr-3">
           <h1 className="">Download Our App</h1>
           <h1 className="">Our Locations</h1>
           <h1 className="">Timings</h1>
@@ -72,7 +67,7 @@ const Dosa = () => {
             </div>
           </div>
         </div>
-      </ModalComponent>
+        </ModalComponent>
           <button 
           onClick={() => setIsDownloadOpen(true)}
           style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.4) ," ,text:"md"}}
@@ -234,30 +229,7 @@ const Dosa = () => {
           <Hr space={30} />
         </div>
       )}
-
-      <div className="flex h-[130px] justify-around ml-[-17vh] " >
-        <form className={`form max-sm:ml-14 ${isOpen ? 'hidden' : ''}`}>
-          <div className="flex space-x-4 input-group">
-            <div className="relative">
-              <AiOutlineSearch
-                className="absolute max-sm:ml-12 ml-2 mt-4 left-0"
-                color="gray"
-              />
-              <input
-                type="text"
-                style={{ paddingLeft: 28 }}
-                
-                className={`input searchdown ${isOpen ? 'disabled' : ''}`}
-                readOnly={isOpen}
-              />
-              <label className="placeholder max-sm:ml-12">Search Item</label>
-            </div>
-          </div>
-        </form>
-      </div>
-    
       <MenuItem/>
-    
     </div>
   );
 };

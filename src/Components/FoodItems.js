@@ -1,248 +1,89 @@
-import React,{useState} from 'react'
-import { AiOutlineClockCircle, AiOutlineMenu } from 'react-icons/ai';
-import { ModalComponent } from './Modal';
-import { IoMdCall } from 'react-icons/io';
-import { MdOutlineMailOutline } from 'react-icons/md';
-import { Hr } from './GlobalContent';
-import { LuChevronDown, LuChevronRight } from 'react-icons/lu';
-import { Plain_Dosa } from '../utils/css/dummydata/Carddata';
+import React from "react";
+import { IoMdCall } from "react-icons/io";
+import { items_lists } from "../utils/css/dummydata/Carddata";
+import { MdOutlineArrowBack } from "react-icons/md";
+import { useNavigate, useParams } from "react-router-dom";
 
 const FoodItems = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [DownloadOpen, setIsDownloadOpen] = useState(false);
-  const OpenSlider = () => {
-    setIsOpen(true);
+  const navigate = useNavigate();
+  const {id} = useParams();
+  const navigateToPage = () => {
+    navigate("/Dosa");
   };
-  const CloseSlider = () => {
-    setIsOpen(false);
-  };
-  const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
 
-  const toggleDropdown = (index) => {
-    setOpenDropdownIndex(openDropdownIndex === index ? null : index);
-  };
   return (
-    <div className=''>
-       <div className={`flex flex-row items-center justify-between p-2 w-full creamcolor ${isOpen ? 'fixed' : ''}`}>
-      
-      <div className="flex space-x-2 text-3xl xl:text-4xl">
-        <h1 className="circle circle-text  mb-4 xl:w-8 xl:h-8 xl:mb-6 mobile-hidden">
-          x
-        </h1>
-        <div className="flex web-hidden">
-          <AiOutlineMenu color="orange" size="0.6em" className="mt-[8px] ml-[-12px]"
-          onClick={OpenSlider}/>
-        </div>
-        <h1 className="text-orange-500 font-bold xl:text-xl max-sm:text-[18px]">DOSA</h1>
-        <h1 className="text-green-600 font-bold xl:text-xl max-sm:text-[18px]">HOUSE.</h1>
-      </div>
-      <div className="hidden xl:flex space-x-4 text-lg text-black mt-[-20px]">
-        <h1 className="">Download Our App</h1>
-        <h1 className="">Our Locations</h1>
-        <h1 className="">Timings</h1>
-        <h1 className="">Contact us</h1>
-      </div>
-      <div className="flex web-hidden">
-      <ModalComponent isOpen={DownloadOpen}>
-      <div className="bg-transparent rounded-lg p-10 ">
-        <div
-          onClick={() => setIsDownloadOpen(false)}
-          className="justify-between rounded-full">
-          <div className="grad  p-4 place-items-center justify-center align-middle text-center self-center rounded-lg">
-            <h1 className="font-semibold text-md text-white px-6 py-1">Download Now</h1>
-            <div className="flex space-x-8 p-4 justify-center">
-              <h1 className="grid place-items-center bg-slate-100  shadow-orange-500 rounded-xl shadow-md  max-[360px]:h-12 max-[360px]:w-12">
-                <img src="play.png" alt="pic" className="iconn"></img>
-              </h1>
-              <h1 className="grid place-items-center bg-slate-100  shadow-orange-500 rounded-xl shadow-md  w-16 h-16 max-[360px]:h-12 max-[360px]:w-12">
-                <img src="apple.png" alt="pic" className="icoon"></img>
-              </h1>
-            </div>
-            <div className="place-items-center justify-center align-middle text-center self-center grid">
-              <button className="px-6 r-0 l-0 rounded-full text-white  bg-orange-400 mt-6 absolute">Close</button>
-            </div>
+    <div className="">
+      <div className="flex flex-row items-center justify-between p-2 w-full creamcolor">
+        <div className="flex space-x-2 text-3xl xl:text-4xl">
+          <h1 className="circle circle-text  mb-4 xl:w-8 xl:h-8 xl:mb-6 mobile-hidden">
+            x
+          </h1>
+          <div className="circcle xl-screen">
+            <MdOutlineArrowBack
+              color="white"
+              size="0.8em"
+              className="xl-screeen mobile-screen"
+              onClick={navigateToPage}
+            />
           </div>
+          <h1 className="text-orange-500 mt-1 font-bold xl:text-xl max-sm:text-[18px]">
+            DOSA
+          </h1>
+          <h1 className="text-green-600 mt-1 font-bold xl:text-xl max-sm:text-[18px]">
+            HOUSE.
+          </h1>
+        </div>
+     
+        <div className="flex call-icon">
+          <a href="tel:+919348557381">
+            <IoMdCall className="mb-1 mr-4" color="green" size="1.6em" />
+          </a>
         </div>
       </div>
-    </ModalComponent>
-        <button 
-        onClick={() => setIsDownloadOpen(true)}
-        style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.4) ," ,text:"md"}}
-        className="bg-orange-400 rounded-full text-xs px-1 py-1 text-white">Download App</button>
-        <a href="tel:+919348557381" >
-        <IoMdCall className="mb-1" color="green" size="1.4em" />
-        </a>
+      <div className="flex  justify-center ">
+        <div className="scroll-container-food ">
+        <div className="flex justify-between ">
+          <h1 className="flex  font-bold text-style">DOSAS</h1>
+           <button className="bg-orange-500 text-white rounded-full h-6 w-28  mt-4 text-xs xl:mr-4 placeholder: ">Download Menu</button>
+           </div>
+           <div className="w-96" >
+
+          {items_lists[id-1].map((item) => (
+            <div
+              key={item.id}
+            className="flex bg-white justify-between my-4 px-6 py-4 border-b"
+            >
+  
+              <div>
+                <h1 className="flex text-black text-sm "> {item.name}</h1>
+                <div className="flex text-black  text-[10px]">
+                  <h1 className="text-gray-400 mt-1 max-sm:text-xs ">
+                    Price:
+                  </h1>
+                  <h1 className="text-red-500 mt-1 max-sm:text-xs">
+                    $ {item.price.tax + item.price.price}
+                  </h1>
+                  <div className="flex max-sm:text-xs">
+                  <h1 className="text-gray-400 mt-1 ml-1 "> + T:</h1>
+                  <h1 className="text-green-600 mt-1 ml-1">
+                    ${item.price.tax}
+                  </h1>
+                </div>
+                </div>
+              </div>
+
+              <button className="bg-red-200 h-7 w-16 mr-2 rounded-full text-red-500 text-xs ">
+                + ADD
+              </button>
+             
+            </div>
+          ))}
+          </div>
+
+        </div>
       </div>
     </div>
-    {isOpen && (
-          <div className="slide-panel-header p-2">
-            <h1
-              onClick={CloseSlider}
-              className="text-black font-semibold text-right text-lg mr-2 mt-2">
-              X
-            </h1>
-            <div className="flex justify-between items-center mt-4">
-              <h1 className="font-semibold text-sm">Download our app</h1>
-              {openDropdownIndex === 1 ? (
-              <LuChevronDown
-              color="black"
-              size="1.1em"
-               onClick={() => toggleDropdown(1)}>
+  );
+};
 
-              </LuChevronDown>
-            ) : (
-              <LuChevronRight
-                size="1.1em"
-                color="black"
-                // src="down.png"
-                alt=""
-                onClick={() => toggleDropdown(1)}
-              />
-            )}
-            </div>
-            {openDropdownIndex === 1 && (
-            <div className="flex space-x-6 mt-4">
-              <img src="play.png" alt="pic" className="h-8 w-8"></img>
-              <img src="apple.png" alt="pic" className="h-8 w-8"></img>
-            </div>
-          )}
-          <Hr space={30} />
-          <div className="flex justify-between items-center mt-2">
-              <h1 className="font-semibold text-sm">Our locations</h1>
-              {openDropdownIndex === 1 ? (
-              <LuChevronDown
-              color="black"
-              size="1.1em"
-               onClick={() => toggleDropdown(2)}>
-
-              </LuChevronDown>
-            ) : (
-              <LuChevronRight
-                size="1.1em"
-                color="black"
-                // src="down.png"
-                alt=""
-                onClick={() => toggleDropdown(2)}
-              />
-            )}
-            </div>
-            {openDropdownIndex === 2 && (
-            <>
-              <div className="flex space-x-2 text-xs mt-2">
-                <img src="location.png" alt="pic" className="h-4 w-3"></img>
-                <h1>Sector 22 Chandigarh</h1>
-                <img
-                  src="checkbox.png"
-                  alt="pic"
-                  className="h-3 w-3 mt-1"
-                ></img>
-              </div>
-              <div className="flex space-x-2 text-xs mt-2">
-                <img src="location.png" alt="" className="h-4 w-3"></img>
-                <h1>Sector 16 Chandigarh</h1>
-                <img
-                  src="checkbox.png"
-                  alt="pic"
-                  className="h-3 w-3 mt-1"
-                ></img>
-              </div>
-            </>
-          )}
-          <Hr space={30} />
-          <div className="flex justify-between items-center mt-2">
-              <h1 className="font-semibold text-sm">Our Timings</h1>
-              {openDropdownIndex === 3 ? (
-              <LuChevronDown
-              color="black"
-              size="1.1em"
-               onClick={() => toggleDropdown(3)}>
-
-              </LuChevronDown>
-            ) : (
-              <LuChevronRight
-                size="1.1em"
-                color="black"
-                // src="down.png"
-                alt=""
-                onClick={() => toggleDropdown(3)}
-              />
-            )}
-            </div>
-            {openDropdownIndex === 3 && (
-            <>
-              <div className="flex space-x-2 text-xs mt-2">
-                <AiOutlineClockCircle
-                  src="location.png"
-                  alt="pic"
-                  color="orange"
-                  className="h-5 w-4 "
-                />
-                <p className="text-xs">Mon to Sat (10:00 am to 8:00 pm)</p>
-              </div>
-              <div className="flex space-x-2 text-xs mt-2">
-                <AiOutlineClockCircle
-                  src="location.png"
-                  alt=""
-                  color="orange"
-                  className="h-5 w-4"
-                />
-                <h1 className="text-xs">Sunday Closed</h1>
-              </div>
-            </>
-          )}
-          <Hr space={30} />
-          <div className="flex justify-between items-center mt-2">
-              <h1 className="font-semibold text-sm">Contact us</h1>
-              {openDropdownIndex === 4 ? (
-              <LuChevronDown
-              color="black"
-              size="1.1em"
-               onClick={() => toggleDropdown(4)}>
-
-              </LuChevronDown>
-            ) : (
-              <LuChevronRight
-                size="1.1em"
-                color="black"
-                // src="down.png"
-                alt=""
-                onClick={() => toggleDropdown(4)}
-              />
-            )}
-          
-            </div>
-            {openDropdownIndex === 4 && (
-            <>
-              <div className="flex space-x-1 text-xs mt-2">
-               <IoMdCall color="green" size="1.3em"/>
-                <h1>+91 814602377</h1>
-              </div>
-              <div className="flex space-x-1 text-xs ">
-                <MdOutlineMailOutline size="1.2em" className="mt-1" color="#FFA337" />
-                <h1 className="">example@gmail.com</h1>
-              </div>
-            </>
-          )}
-         
-        </div>
-      )}
-        <h1 className='flex justify-start font-bold text-style '>DOSAS</h1>
-        {Plain_Dosa.map((item) => (
-         <div  key={item.id} className='flex bg-white  justify-between my-4 px-4 py-4 border-b'>
-        <div >
-          <h1 className='flex text-black ml-2 text-sm justify-start'> {item.name}</h1>
-          <div className='flex'>
-          <p className=' text-black ml-2 text-xs'>Price: {item.price.price}</p>
-          <p className="text-black ml-2 text-xs">Tax: {item.price.tax}</p>
-          </div>
-        </div>
-        <button className='bg-pink-200 h-8 w-20 rounded-full text-red-500 text-sm mr-2'>+ ADD</button>
-        </div>
-        
-        ))}
-        
-    </div>
-  )
-}
-
-export default FoodItems
+export default FoodItems;
