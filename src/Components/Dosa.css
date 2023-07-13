@@ -96,9 +96,7 @@
   height:2vh;
   color: gray;
 }
-.call-icon{ 
-width: 2vw;
-}
+
 .xl-screen{
   height: 30px;
   width: 30px;
@@ -115,7 +113,7 @@ width: 2vw;
         right: 14vh;   
     }
 }
-@media only screen and (max-width:360px){
+/* @media only screen and (min-width:360px){
     .searchdown{
         background-color: white;
         width: 90%;
@@ -124,6 +122,19 @@ width: 2vw;
         justify-content: center;
         align-items: center;   
     }
+} */
+@media only screen and (max-width: 600px) and (min-width: 360px)  {
+
+  .searchdown{
+    background-color: white;
+    width: 90%;
+    margin-left: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+  
 }
 .placeholder
 {

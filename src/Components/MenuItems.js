@@ -25,10 +25,11 @@ const MenuItems = () => {
 
   return (
     <div>
-      <div className="flex h-[130px] justify-around ml-[-17vh]">
-        <form className={`form max-sm:ml-14 ${isOpen ? "hidden" : ""}`}>
-          <div className="flex space-x-4 input-group">
-            <div className="relative">
+      <div className="flex justify-center items-center mt-4">
+    
+    <input type="text" placeholder="enter your name" className="bg-red-500"/>
+  </div>
+  <div className="relative">
               <AiOutlineSearch
                 className="absolute max-sm:ml-12 ml-2 mt-4 left-0"
                 color="gray"
@@ -43,6 +44,28 @@ const MenuItems = () => {
               />
               <label className="placeholder max-sm:ml-12">Search Item</label>
             </div>
+  
+     
+    
+      <div className="flex h-[130px] justify-around ml-[-17vh]">
+      
+        <form className={`form max-sm:ml-14 ${isOpen ? "hidden" : ""}`}>
+          <div className="flex space-x-4 input-group">
+          {/* <div className="relative">
+              <AiOutlineSearch
+                className="absolute max-sm:ml-12 ml-2 mt-4 left-0"
+                color="gray"
+              />
+              <input
+                type="text"
+                style={{ paddingLeft: 28 }}
+                className={`input searchdown ${isOpen ? "disabled" : ""}`}
+                readOnly={isOpen}
+                value={searchQuery}
+                onChange={handleSearch}
+              />
+              <label className="placeholder max-sm:ml-12">Search Item</label>
+            </div> */}
           </div>
         </form>
       </div>
