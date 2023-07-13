@@ -51,7 +51,7 @@ const Dosa = () => {
             HOUSE.
           </h1>
         </div>
-        <div className="hidden xl:flex space-x-4 text-md text-black mr-3">
+        <div className="hidden xl:flex space-x-4 text-sm text-black mr-3">
           <h1 className="">Download Our App</h1>
           <h1 className="">Our Locations</h1>
           <h1 className="">Timings</h1>
@@ -68,14 +68,15 @@ const Dosa = () => {
                   <h1 className="font-semibold text-md text-white px-6 py-1">
                     Download Now
                   </h1>
-                  <div className="flex space-x-8 p-4 justify-center">
-                    <h1 className="grid place-items-center bg-slate-100  shadow-orange-500 rounded-xl shadow-md  max-[360px]:h-12 max-[360px]:w-12">
-                      <img src="play.png" alt="pic" className="iconn"></img>
-                    </h1>
-                    <h1 className="grid place-items-center bg-slate-100  shadow-orange-500 rounded-xl shadow-md  w-16 h-16 max-[360px]:h-12 max-[360px]:w-12">
-                      <img src="apple.png" alt="pic" className="icoon"></img>
-                    </h1>
+                  <div className="flex p-4 justify-between ">
+                    <div className="flex justify-center items-center bg-slate-100 shadow-orange-500 rounded-xl shadow-md max-w-[360px] w-12 h-12 sm:max-w-none p-1.5 sm:w-16 sm:h-16">
+                      <img src="play.png" alt="pic" className="w-fit h-fit"></img>
+                    </div>
+                    <div className="flex justify-center items-center bg-slate-100 shadow-orange-500 rounded-xl shadow-md w-12 h-12 max-w-[360px] p-1.5 sm:max-w-none sm:w-16 sm:h-16">
+                      <img src="apple.png" alt="pic" className="w-fit h-fit"></img>
+                    </div>
                   </div>
+
                   <div className="place-items-center justify-center align-middle text-center self-center grid">
                     <button className="px-6 r-0 l-0 rounded-full text-white  bg-orange-400 mt-6 absolute">
                       Close

@@ -1,8 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import { IoMdCall } from "react-icons/io";
 import { items_lists } from "../utils/css/dummydata/Carddata";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
+import sectionData from "./SectionData";
 
 const FoodItems = () => {
   const navigate = useNavigate();
@@ -47,14 +48,12 @@ const FoodItems = () => {
       <div className="flex justify-center">
         <div className=" ">
           <div className="flex justify-between ">
-            {items_lists.map((item) => (
-              <div key={item.id}>
-                <h1 className="flex font-bold text-style">{item.name}</h1>
-              </div>
-            ))}
-            <button className="bg-orange-500 text-white rounded-full h-6 w-28 max-sm:mr-4  mt-4 text-xs xl:mr-4">
+             <h1 className="flex font-bold text-style">{sectionData[id-1].title}</h1>
+             <a href="https://drive.google.com/uc?export=download&id=1DAqm0pn7JQRa1C1tTKOKKS6Rq0FmzXFw" target="_blank" rel="noopener noreferrer">
+            <button className="bg-orange-500 text-white rounded-full h-6 w-28 max-sm:mr-8  mt-4 text-xs xl:mr-4">
               Download Menu
             </button>
+            </a>
           </div>
           <div className="w-96 scroll-container-food">
             {items_lists[id - 1].map((item) => (
@@ -79,7 +78,7 @@ const FoodItems = () => {
                     </div>
                   </div>
                 </div>
-                <button className="bg-red-200 h-7 w-16 mr-2 rounded-full text-red-500 text-xs ">
+                <button className="bg-red-100 h-7 w-16 mr-2 rounded-full text-red-500 text-xs border-b">
                   + ADD
                 </button>
               </div>

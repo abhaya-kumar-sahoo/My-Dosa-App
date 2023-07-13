@@ -24,23 +24,24 @@ const MenuItems = () => {
   };
 
   return (
-    <div>
-      <div className="flex h-[130px] justify-around ml-[-17vh]">
-        <form className={`form max-sm:ml-14 ${isOpen ? "hidden" : ""}`}>
+    <div className="">
+      <div className="flex h-[130px] justify-center  ml-[-10vh]">
+        <form className={`form  ${isOpen ? "hidden" : ""}`}>
           <div className="flex input-group justify-center items-center sm:ml-12 ">
             <div className="relative">
               <AiOutlineSearch
-                className="absolute max-sm:ml-12 ml-2 mt-4 left-0"
+                className="absolute max-sm:ml-16 ml-2 mt-4 left-0"
                 color="gray"
               />
               <input
                 type="text"
                 className={` input searchdown ${isOpen ? "disabled" : ""}`}
                 readOnly={isOpen}
+                
                 value={searchQuery}
                 onChange={handleSearch}
               />
-              <label className="placeholder max-sm:ml-12">Search Item</label>
+              <label className="placeholder max-sm:ml-16">Search Item</label>
             </div>
           </div>
         </form>
