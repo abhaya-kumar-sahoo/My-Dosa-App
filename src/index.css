@@ -149,3 +149,13 @@ body {
 	  height: 16px;
 	}
   }
+  .dropdown:hover .dropdown-menu {
+	display: block;
+  }
+
+    @media (max-width: 768px) {
+    .hidden-mobile {
+      display: none;
+    }
+  }
+  

@@ -37,7 +37,6 @@ const MenuItems = () => {
                 type="text"
                 className={` input searchdown ${isOpen ? "disabled" : ""}`}
                 readOnly={isOpen}
-                
                 value={searchQuery}
                 onChange={handleSearch}
               />

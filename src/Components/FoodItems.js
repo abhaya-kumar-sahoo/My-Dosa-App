@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import { IoMdCall } from "react-icons/io";
 import { items_lists } from "../utils/css/dummydata/Carddata";
 import { MdOutlineArrowBack } from "react-icons/md";
@@ -13,17 +13,17 @@ const FoodItems = () => {
   };
 
   return (
-    <div className="">
+    <div className="fixed w-screen">
       <div className="flex flex-row items-center justify-between p-2 w-full creamcolor">
         <div className="flex space-x-2 text-3xl xl:text-4xl">
           <h1 className="circle circle-text  mb-4 xl:w-8 xl:h-8 xl:mb-6 mobile-hidden">
             x
           </h1>
-          <div className="circcle xl-screen">
+          <div className="circcle xl-screen max-sm:mr-2">
             <MdOutlineArrowBack
               color="white"
               size="0.8em"
-              className="xl-screeen mobile-screen"
+              className="xl-screeen "
               onClick={navigateToPage}
             />
           </div>

@@ -1,32 +1,25 @@
 import React, { useState } from "react";
-import { AiOutlineClockCircle, AiOutlineMenu } from "react-icons/ai";
+import {
+  AiOutlineClockCircle,
+  AiOutlineMail,
+  AiOutlineMenu,
+} from "react-icons/ai";
 import "./Dosa.css";
 import "../utils/css/Gloablcss.css";
 import { IoMdCall } from "react-icons/io";
-import { LuChevronRight } from "react-icons/lu";
-import { LuChevronDown } from "react-icons/lu";
-import { MdOutlineMailOutline } from "react-icons/md";
-import { Hr } from "./GlobalContent";
 import { ModalComponent } from "./Modal";
 import MenuItem from "./MenuItems";
+import { MdLocationOn } from "react-icons/md";
+import { useDisclosure, useCounter } from "@mantine/hooks";
+import { Modal, Button, Group, Text, Badge } from "@mantine/core";
+
 const Dosa = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [DownloadOpen, setIsDownloadOpen] = useState(false);
-
-  const OpenSlider = () => {
-    setIsOpen(true);
-  };
-  const CloseSlider = () => {
-    setIsOpen(false);
-  };
-  const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
-
-  const toggleDropdown = (index) => {
-    setOpenDropdownIndex(openDropdownIndex === index ? null : index);
-  };
-
+  const [opened, { close, open }] = useDisclosure(false);
+ 
   return (
-    <div className="">
+    <div className="fixed w-screen">
       <div
         className={`flex flex-row items-center justify-between p-2 w-full creamcolor ${
           isOpen ? "fixed" : ""
@@ -41,8 +34,21 @@ const Dosa = () => {
               color="orange"
               size="0.6em"
               className="mt-[8px] ml-[-12px]"
-              onClick={OpenSlider}
+              onClick={open}
             />
+            <>
+              <Modal
+                opened={opened}
+                centered
+                onClose={close}
+              >
+              <div className="bg-red-600" >
+              <h1>Abhaya</h1>
+
+              </div>
+              </Modal>
+            
+            </>
           </div>
           <h1 className="text-orange-500 font-bold xl:text-xl max-sm:text-[18px]">
             DOSA
@@ -51,12 +57,108 @@ const Dosa = () => {
             HOUSE.
           </h1>
         </div>
-        <div className="hidden xl:flex space-x-4 text-sm text-black mr-3">
-          <h1 className="">Download Our App</h1>
-          <h1 className="">Our Locations</h1>
-          <h1 className="">Timings</h1>
-          <h1 className="">Contact us</h1>
+        <div className="flex space-x-2 justify-end text-sm hidden sm:block">
+          <div class=" dropdown inline-block relative">
+            <button class=" creamcolor text-gray-700 font-semibold text-sm py-2 px-4 rounded inline-flex items-center">
+              <span class="mr-1">Download Our App</span>
+              <svg
+                class="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </button>
+
+            <ul class="dropdown-menu absolute  creamcolor w-40 hidden text-black mt-4 ">
+              <li className=" rounded-t flex items-center justify-center whitespace-no-wrap p-2">
+                <img src="play.png" alt="" className="h-6 w-6" />
+                <h1 class="text-[12px] ml-2">Play Store</h1>
+              </li>
+              <li className="rounded-t flex  items-center justify-center whitespace-no-wrap p-2">
+                <img src="apple.png" alt="" className="h-6 w-6" />
+
+                <h1 class="text-[12px] ml-2">App Store</h1>
+              </li>
+            </ul>
+          </div>
+          <div class=" dropdown inline-block relative">
+            <button class=" creamcolor text-gray-700 font-semibold text-sm py-2 px-4 rounded inline-flex items-center">
+              <span class="mr-1">Our location</span>
+              <svg
+                class="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </button>
+            <ul class="dropdown-menu absolute hidden text-black  mt-4">
+              <li class="">
+                <h1 class="flex rounded-t creamcolor  h-10 w-40 p-1  items-center justify-center text-[12px]  whitespace-no-wrap">
+                  <MdLocationOn size="1.5em" color="green" />
+                  Sector 22
+                </h1>
+                <h1 class="flex rounded-t creamcolor  h-10 w-40 p-1  items-center justify-center text-[12px]  whitespace-no-wrap">
+                  <MdLocationOn size="1.5em" color="green" />
+                  Sector 22
+                </h1>
+              </li>
+            </ul>
+          </div>
+          <div class=" dropdown inline-block relative">
+            <button class=" creamcolor text-gray-700 font-semibold text-sm py-2 px-4 rounded inline-flex items-center">
+              <span class="mr-1">Timings</span>
+              <svg
+                class="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </button>
+            <ul class="dropdown-menu w-52 px-2 absolute creamcolor hidden text-black mt-4">
+              <li class="flex align-middle items-center justify-start p-1">
+                <AiOutlineClockCircle color="green" size="1em" className="" />
+                <h1 className="text-[12px] ml-2 font-medium ">
+                  Mon-Fri (8:00am to 9:00pm)
+                </h1>
+              </li>
+              <li class="flex align-middle items-center justify-start p-1">
+                <AiOutlineClockCircle color="green" size="1em" className="" />
+                <h1 className="text-[12px] ml-2 font-medium ">
+                  Sat & Sun Closed
+                </h1>
+              </li>
+            </ul>
+          </div>
+
+          <div class=" dropdown inline-block relative">
+            <button class=" creamcolor text-gray-700 font-semibold text-sm py-2 px-4 rounded inline-flex items-center">
+              <span class="mr-1">Contact Us</span>
+              <svg
+                class="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </button>
+            <ul class="dropdown-menu absolute right-0 w-52 creamcolor hidden text-black mt-4">
+              <li class="flex align-middle items-center justify-start p-1">
+                <IoMdCall color="green" size="1.5em" className="" />
+                <h1 className="text-[12px] ml-2 font-medium">7888925456</h1>
+              </li>
+              <li class="flex align-middle items-center justify-start p-1">
+                <AiOutlineMail color="skyblue" size="1.2em" className="" />
+                <h1 className="text-[12px] ml-2 font-medium">
+                  example@gmail.com
+                </h1>
+              </li>
+            </ul>
+          </div>
         </div>
+
         <div className="flex web-hidden">
           <ModalComponent isOpen={DownloadOpen}>
             <div className="bg-transparent rounded-lg p-10 ">
@@ -70,10 +172,18 @@ const Dosa = () => {
                   </h1>
                   <div className="flex p-4 justify-between ">
                     <div className="flex justify-center items-center bg-slate-100 shadow-orange-500 rounded-xl shadow-md max-w-[360px] w-12 h-12 sm:max-w-none p-1.5 sm:w-16 sm:h-16">
-                      <img src="play.png" alt="pic" className="w-fit h-fit"></img>
+                      <img
+                        src="play.png"
+                        alt="pic"
+                        className="w-fit h-fit"
+                      ></img>
                     </div>
                     <div className="flex justify-center items-center bg-slate-100 shadow-orange-500 rounded-xl shadow-md w-12 h-12 max-w-[360px] p-1.5 sm:max-w-none sm:w-16 sm:h-16">
-                      <img src="apple.png" alt="pic" className="w-fit h-fit"></img>
+                      <img
+                        src="apple.png"
+                        alt="pic"
+                        className="w-fit h-fit"
+                      ></img>
                     </div>
                   </div>
 
@@ -98,158 +208,7 @@ const Dosa = () => {
           </a>
         </div>
       </div>
-      {isOpen && (
-        <div className="slide-panel-header p-2 bg-black">
-          <h1
-            onClick={CloseSlider}
-            className="text-black font-semibold text-right text-lg mr-2 mt-2"
-          >
-            X
-          </h1>
-          <div className="flex justify-between items-center mt-4">
-            <h1 className="font-semibold text-sm">Download our app</h1>
-            {openDropdownIndex === 1 ? (
-              <LuChevronDown
-                color="black"
-                size="1.1em"
-                onClick={() => toggleDropdown(1)}
-              ></LuChevronDown>
-            ) : (
-              <LuChevronRight
-                size="1.1em"
-                color="black"
-                // src="down.png"
-                alt=""
-                onClick={() => toggleDropdown(1)}
-              />
-            )}
-          </div>
-          {openDropdownIndex === 1 && (
-            <div className="flex space-x-6 mt-4">
-              <img src="play.png" alt="pic" className="h-8 w-8"></img>
-              <img src="apple.png" alt="pic" className="h-8 w-8"></img>
-            </div>
-          )}
-          <Hr space={30} />
-          <div className="flex justify-between items-center mt-2">
-            <h1 className="font-semibold text-sm">Our locations</h1>
-            {openDropdownIndex === 1 ? (
-              <LuChevronDown
-                color="black"
-                size="1.1em"
-                onClick={() => toggleDropdown(2)}
-              ></LuChevronDown>
-            ) : (
-              <LuChevronRight
-                size="1.1em"
-                color="black"
-                // src="down.png"
-                alt=""
-                onClick={() => toggleDropdown(2)}
-              />
-            )}
-          </div>
-          {openDropdownIndex === 2 && (
-            <>
-              <div className="flex space-x-2 text-xs mt-2">
-                <img src="location.png" alt="pic" className="h-4 w-3"></img>
-                <h1>Sector 22 Chandigarh</h1>
-                <img
-                  src="checkbox.png"
-                  alt="pic"
-                  className="h-3 w-3 mt-1"
-                ></img>
-              </div>
-              <div className="flex space-x-2 text-xs mt-2">
-                <img src="location.png" alt="" className="h-4 w-3"></img>
-                <h1>Sector 16 Chandigarh</h1>
-                <img
-                  src="checkbox.png"
-                  alt="pic"
-                  className="h-3 w-3 mt-1"
-                ></img>
-              </div>
-            </>
-          )}
-          <Hr space={30} />
-          <div className="flex justify-between items-center mt-2">
-            <h1 className="font-semibold text-sm">Our Timings</h1>
-            {openDropdownIndex === 3 ? (
-              <LuChevronDown
-                color="black"
-                size="1.1em"
-                onClick={() => toggleDropdown(3)}
-              ></LuChevronDown>
-            ) : (
-              <LuChevronRight
-                size="1.1em"
-                color="black"
-                // src="down.png"
-                alt=""
-                onClick={() => toggleDropdown(3)}
-              />
-            )}
-          </div>
-          {openDropdownIndex === 3 && (
-            <>
-              <div className="flex space-x-2 text-xs mt-2">
-                <AiOutlineClockCircle
-                  src="location.png"
-                  alt="pic"
-                  color="orange"
-                  className="h-5 w-4 "
-                />
-                <p className="text-xs">Mon to Sat (10:00 am to 8:00 pm)</p>
-              </div>
-              <div className="flex space-x-2 text-xs mt-2">
-                <AiOutlineClockCircle
-                  src="location.png"
-                  alt=""
-                  color="orange"
-                  className="h-5 w-4"
-                />
-                <h1 className="text-xs">Sunday Closed</h1>
-              </div>
-            </>
-          )}
-          <Hr space={30} />
-          <div className="flex justify-between items-center mt-2">
-            <h1 className="font-semibold text-sm">Contact us</h1>
-            {openDropdownIndex === 4 ? (
-              <LuChevronDown
-                color="black"
-                size="1.1em"
-                onClick={() => toggleDropdown(4)}
-              ></LuChevronDown>
-            ) : (
-              <LuChevronRight
-                size="1.1em"
-                color="black"
-                // src="down.png"
-                alt=""
-                onClick={() => toggleDropdown(4)}
-              />
-            )}
-          </div>
-          {openDropdownIndex === 4 && (
-            <>
-              <div className="flex space-x-1 text-xs mt-2">
-                <IoMdCall color="green" size="1.3em" />
-                <h1>+91 814602377</h1>
-              </div>
-              <div className="flex space-x-1 text-xs ">
-                <MdOutlineMailOutline
-                  size="1.2em"
-                  className="mt-1"
-                  color="#FFA337"
-                />
-                <h1 className="">example@gmail.com</h1>
-              </div>
-            </>
-          )}
-          <Hr space={30} />
-        </div>
-      )}
+
       <MenuItem />
     </div>
   );
