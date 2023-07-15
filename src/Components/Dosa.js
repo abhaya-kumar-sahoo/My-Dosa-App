@@ -4,85 +4,97 @@ import {
   AiOutlineMail,
   AiOutlineMenu,
 } from "react-icons/ai";
-import { CiLocationOn } from "react-icons/ci";
 import "./Dosa.css";
 import "../utils/css/Gloablcss.css";
 import { IoIosCall, IoMdCall } from "react-icons/io";
 import { ModalComponent } from "./Modal";
 import MenuItem from "./MenuItems";
 import { MdLocationOn, MdLocationPin } from "react-icons/md";
-import { useDisclosure } from "@mantine/hooks";
-import { Modal } from "@mantine/core";
-import img from "../../src/oval.png";
+
 
 const Dosa = () => {
   const [isOpen] = useState(false);
   const [DownloadOpen, setIsDownloadOpen] = useState(false);
-  const [opened, { close, open }] = useDisclosure(false);
+  const [showModal, setShowModal] = React.useState(false);
 
   return (
     <div className="fixed w-screen">
       <div
-        className={`flex flex-row items-center justify-between p-2 w-full creamcolor ${
-          isOpen ? "fixed" : ""
-        }`}
+        className={`flex flex-row items-center justify-between p-2 w-full creamcolor ${isOpen ? "fixed" : ""
+          }`}
       >
         <div className="flex space-x-2 text-3xl xl:text-4xl">
           <h1 className="circle circle-text  mb-4 xl:w-8 xl:h-8 xl:mb-6 mobile-hidden">
             x
           </h1>
-          <div className="flex web-hidden">
-            <AiOutlineMenu
+          <div>
+             <AiOutlineMenu
               color="orange"
               size="0.6em"
               className="mt-[8px] ml-[-12px]"
-              onClick={open}
+              onClick={() => setShowModal(true)}
             />
-            <>
-              <Modal
-                opened={opened}
-                centered
-                onClose={close}
-                className="my-custom-modal"
-              >
-                <div className="flex justify-center items-center relative h-[70vh]">
-                  <div className="flex justify-center items-center w-40 h-[398px] z-0  browncolor rounded-full ">
-                    <div className="  h-80 w-20 grid justify-around align-middle items-center ">
-                      <div>
-                        <MdLocationPin
-                          size="2.5em"
-                          className="flex ml-4"
-                          color="red"
-                        />
-                        <h1 className="text-black font-bold text-lg">
-                          Location
-                        </h1>
+       
+            {showModal ? (
+              <>
+        
+                <div
+                  className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                >
+                  <div className="relative w-auto my-6 mx-auto max-w-3xl">
+
+                    <div className="border-0 rounded-lg shadow-lg relative  flex flex-col outline-none focus:outline-none">
+
+                      <div className="rounded-full  modelheight grid justify-around align-middle items-center">
+                        <p
+                          className="closeicon "
+                          onClick={() => setShowModal(false)}>
+                            <h1 className="text-[22px] mt-[-2px] text-white font-bold">X </h1></p>
+                        <div className="">
+                          <img
+                            src="location.png"
+                            className="ml-16 h-18 w-16 mt-[-92px]"
+                            alt="red"
+                          />
+                          <h1 className="text-black font-bold text-2xl ">
+                            Location
+                          </h1>
+                        </div>
+                        <div>
+                          <a href="tel:+919348557381">
+                            <img
+                              src="callicon.png"
+                              className="h-30 ml-8 w-28"
+                              alt=""
+                            />
+                          </a>
+                          <h1 className="text-black font-bold text-2xl mt-[-20px]">
+                            Call
+                          </h1>
+                        </div>
+                        <div>
+                          <img
+                            src="menuuu.png"
+                            alt="pic"
+                            className="h-24 w-18 ml-12"
+                          />
+                          <h1 className="text-black font-bold text-2xl mt-[-10px]">
+                            Menu
+                          </h1>
+                        </div>
+
                       </div>
-                      <div>
-                        <IoIosCall
-                          size="2.5em"
-                          className="flex ml-4"
-                          color="green"
-                        />
-                        <h1 className="text-black font-bold ml-3 text-lg">
-                          Call
-                        </h1>
-                      </div>
-                      <div>
-                        <img
-                          src="menuuu.png"
-                          alt="pic"
-                          className="h-10 w-12 ml-2 "
-                        />
-                        <h1 className="text-black font-bold ml-3 text-lg">
-                          Menu
-                        </h1>
-                      </div>
+
+
+
                     </div>
                   </div>
                 </div>
-              </Modal>
-            </>
+               
+                <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+              </>
+            ) : null}
+           
           </div>
           <h1 className="text-orange-500 font-bold xl:text-xl max-sm:text-[18px]">
             DOSA
