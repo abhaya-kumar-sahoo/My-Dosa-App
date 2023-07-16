@@ -122,6 +122,14 @@
     display: flex;
   }
 }
+.mainmodal{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  height: 100vh;
+}
 .placeholder {
   position: absolute;
   top: 14px;
@@ -166,13 +174,9 @@
   height: 98vh;
   width: 46vw;
   inset: 0;
-  background-color: rgba(247, 226, 157, 0.826);  
-  /* z-index: 9999;
-  filter: blur(2px);
-  background-color: rgba(247, 226, 157, 0.826);  
-   background-image: linear-gradient(to right top, #fcf9f0, #f9f2bd, #eaee8c, #f3f69a, #cce498);  */
-  backdrop-filter: blur(40px); 
+  background-color: rgb(247, 226, 157);  
   z-index: -5; 
+  
 }
 .modal-content {
   background-color: white; 

@@ -19,8 +19,9 @@ const Dosa = () => {
   return (
     <div className="fixed w-screen ">
       <div
-        className={`flex flex-row items-center justify-between p-2 w-full creamcolor ${isOpen ? "fixed" : ""
-          }`}
+        className={`flex flex-row items-center justify-between p-2 w-full creamcolor ${
+          isOpen ? "fixed" : ""
+        }`}
       >
         <div className="flex space-x-2 text-3xl xl:text-4xl">
           <h1 className="circle circle-text  mb-4 xl:w-8 xl:h-8 xl:mb-6 mobile-hidden">
@@ -36,18 +37,19 @@ const Dosa = () => {
 
             {showModal ? (
               <>
-                <div
-                  className="justify-center fixed w-screen items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
-                >
+                <div className="justify-center mainmodal w-screen items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                   <div className="relative w-auto my-6 mx-auto max-w-3xl ">
-
                     <div className="border-0 rounded-lg shadow-lg relative  flex flex-col outline-none focus:outline-none">
-                       <div className="rounded-full " ></div>
+                      <div className="rounded-full "></div>
                       <div className="rounded-full  modelheight grid justify-around align-middle items-center backdrop ">
                         <p
                           className="closeicon "
-                          onClick={() => setShowModal(false)}>
-                          <h1 className="text-[22px] mt-[-2px] text-white font-bold">X </h1></p>
+                          onClick={() => setShowModal(false)}
+                        >
+                          <h1 className="text-[22px] mt-[-2px] text-white font-bold">
+                            X{" "}
+                          </h1>
+                        </p>
                         <div className="">
                           <img
                             src="location.png"
@@ -71,7 +73,11 @@ const Dosa = () => {
                           </h1>
                         </div>
                         <div>
-                          <a href="https://drive.google.com/uc?export=download&id=1DAqm0pn7JQRa1C1tTKOKKS6Rq0FmzXFw" target="_blank" rel="noopener noreferrer">
+                          <a
+                            href="https://drive.google.com/uc?export=download&id=1DAqm0pn7JQRa1C1tTKOKKS6Rq0FmzXFw"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <img
                               src="menuuu.png"
                               alt="pic"
@@ -89,7 +95,6 @@ const Dosa = () => {
                 <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
               </>
             ) : null}
-
           </div>
           <h1 className="text-orange-500 font-bold xl:text-xl max-sm:text-[18px]">
             DOSA
