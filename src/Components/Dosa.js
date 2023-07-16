@@ -6,11 +6,10 @@ import {
 } from "react-icons/ai";
 import "./Dosa.css";
 import "../utils/css/Gloablcss.css";
-import { IoIosCall, IoMdCall } from "react-icons/io";
+import { IoMdCall } from "react-icons/io";
 import { ModalComponent } from "./Modal";
 import MenuItem from "./MenuItems";
-import { MdLocationOn, MdLocationPin } from "react-icons/md";
-
+import { MdLocationOn } from "react-icons/md";
 
 const Dosa = () => {
   const [isOpen] = useState(false);
@@ -18,7 +17,7 @@ const Dosa = () => {
   const [showModal, setShowModal] = React.useState(false);
 
   return (
-    <div className="fixed w-screen">
+    <div className="fixed w-screen ">
       <div
         className={`flex flex-row items-center justify-between p-2 w-full creamcolor ${isOpen ? "fixed" : ""
           }`}
@@ -28,35 +27,34 @@ const Dosa = () => {
             x
           </h1>
           <div>
-             <AiOutlineMenu
+            <AiOutlineMenu
               color="orange"
               size="0.6em"
               className="mt-[8px] ml-[-12px]"
               onClick={() => setShowModal(true)}
             />
-       
+
             {showModal ? (
               <>
-        
                 <div
-                  className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                  className="justify-center fixed w-screen items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
                 >
-                  <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                  <div className="relative w-auto my-6 mx-auto max-w-3xl ">
 
                     <div className="border-0 rounded-lg shadow-lg relative  flex flex-col outline-none focus:outline-none">
-
-                      <div className="rounded-full  modelheight grid justify-around align-middle items-center">
+                       <div className="rounded-full " ></div>
+                      <div className="rounded-full  modelheight grid justify-around align-middle items-center backdrop ">
                         <p
                           className="closeicon "
                           onClick={() => setShowModal(false)}>
-                            <h1 className="text-[22px] mt-[-2px] text-white font-bold">X </h1></p>
+                          <h1 className="text-[22px] mt-[-2px] text-white font-bold">X </h1></p>
                         <div className="">
                           <img
                             src="location.png"
                             className="ml-16 h-18 w-16 mt-[-92px]"
                             alt="red"
                           />
-                          <h1 className="text-black font-bold text-2xl ">
+                          <h1 className="text-black font-bold text-2xl">
                             Location
                           </h1>
                         </div>
@@ -73,28 +71,25 @@ const Dosa = () => {
                           </h1>
                         </div>
                         <div>
-                          <img
-                            src="menuuu.png"
-                            alt="pic"
-                            className="h-24 w-18 ml-12"
-                          />
+                          <a href="https://drive.google.com/uc?export=download&id=1DAqm0pn7JQRa1C1tTKOKKS6Rq0FmzXFw" target="_blank" rel="noopener noreferrer">
+                            <img
+                              src="menuuu.png"
+                              alt="pic"
+                              className="h-24 w-18 ml-12"
+                            />
+                          </a>
                           <h1 className="text-black font-bold text-2xl mt-[-10px]">
                             Menu
                           </h1>
                         </div>
-
                       </div>
-
-
-
                     </div>
                   </div>
                 </div>
-               
                 <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
               </>
             ) : null}
-           
+
           </div>
           <h1 className="text-orange-500 font-bold xl:text-xl max-sm:text-[18px]">
             DOSA

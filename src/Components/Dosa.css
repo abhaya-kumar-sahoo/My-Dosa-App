@@ -165,11 +165,19 @@
 .modelheight{
   height: 98vh;
   width: 46vw;
-  background-image: linear-gradient(45deg, #FFC29F, #edd3c4, #FFC29F);
-  background-position: center;
-  background-repeat: no-repeat;
-  /* filter: blur(2px);
-  -webkit-filter: blur(2px); */
+  inset: 0;
+  background-color: rgba(247, 226, 157, 0.826);  
+  /* z-index: 9999;
+  filter: blur(2px);
+  background-color: rgba(247, 226, 157, 0.826);  
+   background-image: linear-gradient(to right top, #fcf9f0, #f9f2bd, #eaee8c, #f3f69a, #cce498);  */
+  backdrop-filter: blur(40px); 
+  z-index: -5; 
+}
+.modal-content {
+  background-color: white; 
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .closeicon{
@@ -178,7 +186,6 @@
   height: 30px;
   width: 30px;
   align-items: end;
-margin-left: 24vh;
- justify-content: end;
-  
+  margin-left: 24vh;
+  justify-content: end;
 }
